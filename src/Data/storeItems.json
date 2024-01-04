@@ -1,0 +1,26 @@
+[
+    {
+      "id": 1,
+      "name": "Book",
+      "price": 10.99,
+      "imgUrl": "https://i.ibb.co/PgWXM8j/bookOne.jpg"
+    },
+    {
+      "id": 2,
+      "name": "Computer",
+      "price": 1199,
+      "imgUrl": "https://i.ibb.co/FhNdkW1/computer-One.jpg"
+    },
+    {
+      "id": 3,
+      "name": "Phone",
+      "price": 1.05,
+      "imgUrl": "https://i.ibb.co/7rf0XR3/phoneOne.jpg"
+    },
+    {
+      "id": 4,
+      "name": "Car",
+      "price": 14000,
+      "imgUrl": "https://i.ibb.co/Ytx9tT2/carOne.jpg"
+    }
+  ]
