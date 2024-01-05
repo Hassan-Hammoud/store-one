@@ -28,7 +28,7 @@ const Navbar = () => {
           className="rounded-circle"
           style={{ fontSize: "20px", position: "relative" }}
         >
-          <i class="bi bi-cart3 "></i>
+          <i className="bi bi-cart3 "></i>
 
           <div
             className="d-flex justify-content-center align-items-center bg-danger rounded-circle"

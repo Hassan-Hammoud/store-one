@@ -2,9 +2,17 @@ import React from "react";
 import "./StoreItem.css";
 import { Button, Card } from "react-bootstrap";
 import formatCurrency from "../formatCurrency";
+import { useShoppingCart } from "../../Context/ShoppingCartContext";
 
 const StoreItem = ({ id, price, name, imgUrl }) => {
-  const quantity = 1;
+  const {
+    getItemsQuantity,
+    increaseCartQuantity,
+    decreaseCartQuantity,
+    removeItemsFromCart,
+  } = useShoppingCart();
+
+  const quantity = getItemsQuantity(id);
   return (
     <Card className="h-100">
       <Card.Img
@@ -19,7 +27,9 @@ const StoreItem = ({ id, price, name, imgUrl }) => {
         </Card.Title>
         <div className="mt-auto  ">
           {quantity === 0 ? (
-            <Button className="w-100">Add To Cart</Button>
+            <Button onClick={() => increaseCartQuantity(id)} className="w-100">
+              Add To Cart
+            </Button>
           ) : (
             <div
               className="d-flex align-items-center flex-column justify-content-center"
@@ -29,15 +39,19 @@ const StoreItem = ({ id, price, name, imgUrl }) => {
                 className="d-flex align-items-center justify-content-center"
                 style={{ gap: "10px" }}
               >
-                <Button>
-                  <i class="bi bi-plus-lg"></i>
+                <Button onClick={() => increaseCartQuantity(id)}>
+                  <i className="bi bi-plus-lg"></i>
                 </Button>
                 <span className="fs-4">1 in the cart</span>
-                <Button>
-                  <i class="bi bi-dash-lg"></i>
+                <Button onClick={() => decreaseCartQuantity(id)}>
+                  <i className="bi bi-dash-lg"></i>
                 </Button>
               </div>
-              <Button variant="danger" size="sm">
+              <Button
+                onClick={() => removeItemsFromCart(id)}
+                variant="danger"
+                size="sm"
+              >
                 Remove
               </Button>
             </div>
