@@ -13,7 +13,7 @@ const CartItem = ({ id, quantity }) => {
       <img
         src={item.imgUrl}
         alt="cart-img"
-        style={{ width: "125px", height: "75px", objectFit: "cover" }}
+        style={{ width: "100px", height: "75px", objectFit: "cover" }}
       />
 
       <div className="me-auto">
