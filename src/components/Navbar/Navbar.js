@@ -7,8 +7,11 @@ import {
 } from "react-bootstrap";
 import "./Navbar.css";
 import { NavLink } from "react-router-dom";
+import { useShoppingCart } from "../../Context/ShoppingCartContext";
 
 const Navbar = () => {
+  const {openCart,cartQuantity} = useShoppingCart();
+
   return (
     <NavbarBootStrap sticky="top" className="bg-white shadow-sm mb-3">
       <Container>
@@ -27,6 +30,7 @@ const Navbar = () => {
           variant="outline-primary"
           className="rounded-circle"
           style={{ fontSize: "20px", position: "relative" }}
+          onClick={() => openCart()}
         >
           <i className="bi bi-cart3 "></i>
 
@@ -43,7 +47,7 @@ const Navbar = () => {
               fontSize: "14px",
             }}
           >
-            3
+           {cartQuantity}
           </div>
         </Button>
       </Container>
