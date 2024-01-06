@@ -42,7 +42,7 @@ const StoreItem = ({ id, price, name, imgUrl }) => {
                 <Button onClick={() => increaseCartQuantity(id)}>
                   <i className="bi bi-plus-lg"></i>
                 </Button>
-                <span className="fs-4">1 in the cart</span>
+                <span className="fs-4">{quantity} in the cart</span>
                 <Button onClick={() => decreaseCartQuantity(id)}>
                   <i className="bi bi-dash-lg"></i>
                 </Button>

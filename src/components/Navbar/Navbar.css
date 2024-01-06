@@ -8,8 +8,12 @@
   }
 
   #quantityItem {
+      position: "absolute";
     font-size: 10px !important;
     width: "10px"!important;
     height: "10px"!important;
+    bottom: "0";
+    right: "0";
+    transform: "translate(25%,25%)";
   }
 }
