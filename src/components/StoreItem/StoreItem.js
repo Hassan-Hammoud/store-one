@@ -18,7 +18,7 @@ const StoreItem = ({ id, price, name, imgUrl }) => {
       <Card.Img
         src={imgUrl}
         variant="top"
-        style={{ height: "350px", objectFit: "cover" }}
+        style={{ height: "250px", objectFit: "cover" }}
       />
       <Card.Body>
         <Card.Title className="d-flex align-items-baseline justify-content-between">

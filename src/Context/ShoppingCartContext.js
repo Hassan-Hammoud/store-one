@@ -1,21 +1,33 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useEffect, useState } from "react";
 import ShoppingCart from "../ShoppingCart/ShoppingCart";
 
 const ShoppingCartContext = createContext({});
 
+const initialCartItems = localStorage.getItem("shoppingCart")
+  ? JSON.parse(localStorage.getItem("shoppingCart"))
+  : [];
+
 const ShoppingCartProvider = ({ children }) => {
-  const [cartItems, setCartItems] = useState([]);
-  const [isOpen,setIsOpen] = useState(false);
-  const cartQuantity = cartItems.reduce((quantity, item) =>(
-    item.quantity + quantity
-  ), 0 )
+  const [cartItems, setCartItems] = useState(initialCartItems);
+  const [isOpen, setIsOpen] = useState(false);
+
+  // Save Data To Local Storage
+  useEffect(() => {
+    localStorage.setItem("shoppingCart", JSON.stringify(cartItems));
+  }, [cartItems]);
+
+  const cartQuantity = cartItems.reduce(
+    (quantity, item) => item.quantity + quantity,
+    0
+  );
+
   const openCart = () => {
-    setIsOpen(true)
-  }
+    setIsOpen(true);
+  };
 
   const closeCart = () => {
-    setIsOpen(false)
-  }
+    setIsOpen(false);
+  };
 
   // Get The Quantity Of Item In The Cart
   const getItemsQuantity = (id) => {
@@ -75,7 +87,7 @@ const ShoppingCartProvider = ({ children }) => {
         removeItemsFromCart,
         openCart,
         closeCart,
-        cartQuantity
+        cartQuantity,
       }}
     >
       {children}
